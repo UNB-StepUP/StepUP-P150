@@ -1,6 +1,6 @@
 classdef utils
     properties (Constant)
-        dataset_folder = '/home/shared/stepUP-P150/mat'; % path to local MATLAB folder
+        dataset_folder = '/home/shared/stepUP-P150/mat'; % path to local data folder
     end
     methods(Static)
         function metadata = load_metadata(participant_id, footwear, speed)
