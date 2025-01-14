@@ -55,9 +55,9 @@ For each walking trial (W1, W2, W3, W3), the following data files are provided:
 
 1. `trial.{npz,mat}`: a 3D tensor containing the full 90-second pressure recording recording with shape: (approx. 9000 frames $\times$ 720 px $\times$ 240 px)
 
-1. `pipeline_1.{npz,mat}`: a 4D tensor containing extracted footsteps preprocessed using *pipeline #1* (documented in [our paper](www.google.com) and demonstrated in [normalized_footsteps.ipynb](python/normalized_footsteps.ipynb)) with shape: (n<sub>footsteps</sub> $\times$ 101 frames $\times$ 75 px $\times$ 40 px)
+1. `pipeline_1.{npz,mat}`: a 4D tensor containing extracted footsteps preprocessed using *pipeline #1* (documented in [our paper](www.google.com) and demonstrated in [normalize_footsteps.ipynb](python/normalize_footsteps.ipynb)) with shape: (n<sub>footsteps</sub> $\times$ 101 frames $\times$ 75 px $\times$ 40 px)
 
-1. `pipeline_2.{npz,mat}`: a 4D tensor containing extracted footsteps preprocessed using *pipeline #2* (documented in [our paper](www.google.com) and demonstrated in [normalized_footsteps.ipynb](python/normalized_footsteps.ipynb)) with shape: (n<sub>footsteps</sub> $\times$ 101 frames $\times$ 75 px $\times$ 40 px)
+1. `pipeline_2.{npz,mat}`: a 4D tensor containing extracted footsteps preprocessed using *pipeline #2* (documented in [our paper](www.google.com) and demonstrated in [normalize_footsteps.ipynb](python/normalize_footsteps.ipynb)) with shape: (n<sub>footsteps</sub> $\times$ 101 frames $\times$ 75 px $\times$ 40 px)
 
    
 ## Balance Trials
