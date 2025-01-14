@@ -1,83 +1,75 @@
-# UNB StepUP P150
+<h1 align="center">UNB StepUP-P150</h1>
+<p align="center"><i>A comprehensive dataset of underfoot pressures for gait analysis and recognition</i></p>
 
-StepUP is a footstep database for gait analysis and recognition using underfoot pressure. The P150 dataset specifically provides underfoot pressure data for 150 participants in 16 different walking and footwear conditions.
+<p align="center">
+  <img src="StepUP.png" alt="Project Banner" height=400>
+</p>
 
-This repository contains python code to support dataset use. The repository is designed for python version 3. A comprehensive overview of the dataset and methodology is provided in [our paper](www.google.com).
+# Overview
+StepUP-P150 is a dataset of dynamic underfoot pressures during walking, developed to support pressure-based gait analysis and recognition. It contains high-resolution pressure recordings from 150 participants walking across a sensor-embedded platform at four different speeds (preferred speed, slow, fast, and slow-to-stop) with four different footwear conditions (barefoot, standard sneakers, and two pairs of personal shoes). 
 
+The StepUP-P150 dataset can be downloaded from our [Figshare Repository](https://doi.org/10.6084/m9.figshare.28143686). The dataset is provided in both `.npz` (i.e., NumPy) and `.mat` (i.e., MATLAB) file formats for convenience.
 
-# Downloading the Dataset
-
-The P150 dataset can be downloaded from [figshare](www.figshare.com). Although the dataset is provided in both `.npz` (i.e., python) and `.mat` (i.e., matlab) file formats, this repository documents python usage only. Therefore, ensure you download the "Python Dataset" from FigShare.
-
-To reduce download size, the dataset is compressed in `.tar.xz` format with a separate compressed folder containing data for each participant. The full dataset can be downloaded by clicking the "Download All" button in FigShare (see below). The dataset can be extracted manually, or using the automated script provided in this repository (see "Unzip the Downloaded Dataset", below).
-
+This repository contains Python and MATLAB code to support dataset use. The codes were developed for Python Version 3.11 and MATLAB Version 2023a. A comprehensive overview of the dataset and methodology is provided in [our paper](www.google.com).
 
 # Using the Repository
 
-This repository provides python source code for working with the dataset. For example, basic functions for loading dataset records are provided in `utils.py`. Further, example usage is documented in the `Examples.ipynb` notebook.
+Refer to the [`matlab`](matlab) folder for MATLAB code for loading the data. Refer to the [`python`](python) folder for Python data loading utilities and Jupyter Notebooks with examples for gait feature extraction, visualisation, and data preprocessing. You will need to update the `dataset_folder` variable (line 3 of `utils.m`, line 5 of `utils.py`) with the file path to the dataset in your local environment.
 
-**Importantly, you _must_ complete the following three (3) steps** for the code in this repository to function correctly.
-
-
-## Step 1: Install Software Dependencies
-
-Dependencies are documented in the `requirements.txt` file. Install them with the following command:
+Python dependencies are documented in the `requirements.txt` file. Install them with the following command:
 
 ```bash
 pip install -r requirements.txt
 ```
 
-## Unzip the Downloaded Dataset
-
-To minimize download requirements, the dataset has been compressed in `.tar.xz` format. The `extract_dataset.py` automates the dataset extraction process. Run the following command to extract the dataset:
-
-```bash
-python extract_dataset.py path/to/downloaded/dataset
-```
-
-
-## Configure the `DATASET_PATH` variable
-
-This repository contains python functions for loading data records. To function correctly, the `DATASET_PATH` variable on line X of `utils.py` must be updated to reflect the file system location of the dataset in your development environment.
-
-```python
-# Update for your local environment
-DATASET_PATH = '/path/to/dataset/root/folder'
-```
-
-
 # Data Records
+
+Each participant completed a series of sixteen 90-second walking trials (i.e., four walking speeds $\times$ four footwear conditions). They also completed twelve 30-second balance trials (i.e., three balance tasks $\times$ four footwear conditions). The dataset folder structure organizes the different trials using the following IDs:
+
+<i>Standing and Walking Conditions</i>
+
+| ID | Description | 
+| --- | --- |
+| W1 | Preferred Speed Walking |
+| W2 | Slow-to-Stop Walking| 
+| W3 | Slower than Preferred Walking |
+| W4 | Faster than Preferred Walking | 
+| S1 | Balancing on Both Feet | 
+| S2 | Balancing on Left Foot |
+| S3 | Balancing on Right Foot | 
+
+<i>Footwear Conditions</i>
+
+| ID | Description | 
+| --- | --- |
+| BF | Without Footwear (Barefoot or Sockfoot) |
+| ST | Standard Sneakers (Adidas Grand Court 2.0) | 
+| P1 | Participant's First Pair of Personal Footwear |
+| P2 | Participant's Second Pair of Personal Footwear | 
 
 ## Walking Trials
 
-Each participant completed a series of sixteen 90-second walking trials (i.e., 4 footwear conditions X 4 walking behaviors). The following data files are provided for each walking trial. Example python code for loading data files is provided in `utils.py`
+For each walking trial (W1, W2, W3, W3), the following data files are provided: 
 
-1. `metadata.csv` - information about each footstep that occurred in the 90-second trial. A full description of metadata fields is provided in Table X of [our paper](www.google.com).
+1. `metadata.csv`: labels, 3D bounding boxes, and parameters extracted during processing for each footstep that occurred in the 90-second trial. A full description of metadata fields is provided in Table 5 of [our paper](www.google.com).
 
-1. `trial.npz` -  a numpy array of the full trial recording with shape: (90,000 frames X 720px X 240px)
+1. `trial.{npz,mat}`: a 3D tensor containing the full 90-second pressure recording recording with shape: (approx. 9000 frames $\times$ 720 px $\times$ 240 px)
 
-1. `pipeline_1.npz` - a numpy array of extracted footsteps preprocessed using *pipeline #1* (documented in [our paper](www.google.com)) with shape: (n_footsteps X 101 frames X 75px X 40px)
+1. `pipeline_1.{npz,mat}`: a 4D tensor containing extracted footsteps preprocessed using *pipeline #1* (documented in [our paper](www.google.com) and demonstrated in [normalized_footsteps.ipynb](python/normalized_footsteps.ipynb)) with shape: (n<sub>footsteps</sub> $\times$ 101 frames $\times$ 75 px $\times$ 40 px)
 
-1. `pipeline_2.npz` - a numpy array of extracted footsteps preprocessed using *pipeline #2* (documented in [our paper](www.google.com)) with shape: (n_footsteps X 101 frames X 75px X 40px)
+1. `pipeline_2.{npz,mat}`: a 4D tensor containing extracted footsteps preprocessed using *pipeline #2* (documented in [our paper](www.google.com) and demonstrated in [normalized_footsteps.ipynb](python/normalized_footsteps.ipynb)) with shape: (n<sub>footsteps</sub> $\times$ 101 frames $\times$ 75 px $\times$ 40 px)
 
+   
+## Balance Trials
 
-## Standing Balance Trials
+For each balance trial (S1, S2, S3), the following data files are provided:
 
-Additionally, participants completed twelve 30-second standing balance trials (i.e., left-, right-, and two-foot balance; performed with each of the 4 footwear conditions). The following data files are provided for each standing trial. Example python code for loading data files is provided in `utils.py`
-
-1. `trial.npz` - a numpy array of the full trial recording, with shape: (30,000 frames X 720px X 240px)
-1. `preprocessed.npz` - a numpy array spatially cropped around the participant, with shape: (30,000 frames X 180px X 180px)
-
-
-
-
-# Example Usage
-
-Although the dataset was collected through the lens of gait biometrics, we anticipate that it will be valuable for a wide range of research topics. Usage examples are provided in the `Examples.ipynb` jupyter notebook.
+1. `trial.{npz,mat}`: a 3D tensor of the full 30-second trial recording, with shape: (approx. 3000 frames $\times$ 720 px $\times$ 240 px)
+1. `processed.{npz,mat}`: a 3D array spatially cropped to the region of interest, with shape: (3000 frames $\times$ 180 px $\times$ 180 px)
 
 
 # Citing this Dataset
 
 ```bibtex
-TODO: Codeblock for citation
+The dataset descriptor is currently under review in Scientific Data. A DOI and citation details will be updated once available.
 ```
