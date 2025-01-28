@@ -51,7 +51,7 @@ Each participant completed a series of sixteen 90-second walking trials (i.e., f
 
 For each walking trial (W1, W2, W3, W3), the following data files are provided: 
 
-1. `metadata.csv`: labels, 3D bounding boxes, and parameters extracted during processing for each footstep that occurred in the 90-second trial. A full description of metadata fields is provided in Table 5 of [our paper](www.google.com).
+1. `metadata.csv`: labels, 3D bounding boxes, and parameters extracted during processing for each footstep that occurred in the 90-second trial. A full description of metadata fields is provided in Table 5 of [the data descriptor](www.google.com).
 
 1. `trial.{npz,mat}`: a 3D tensor containing the full 90-second pressure recording recording with shape: (approx. 9000 frames $\times$ 720 px $\times$ 240 px)
 
