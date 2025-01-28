@@ -8,9 +8,9 @@
 # Overview
 StepUP-P150 is a dataset of dynamic underfoot pressures during walking, developed to support pressure-based gait analysis and recognition. It contains high-resolution pressure recordings from 150 participants walking across a sensor-embedded platform at four different speeds (preferred speed, slow, fast, and slow-to-stop) with four different footwear conditions (barefoot, standard sneakers, and two pairs of personal shoes). 
 
-The StepUP-P150 dataset can be downloaded from our [Figshare Repository](https://doi.org/10.6084/m9.figshare.28143686). The dataset is provided in both `.npz` (i.e., NumPy) and `.mat` (i.e., MATLAB) file formats for convenience.
+The StepUP-P150 dataset can be downloaded from the study's [Figshare Repository](https://doi.org/10.6084/m9.figshare.28143686). The dataset is provided in both `.npz` (i.e., NumPy) and `.mat` (i.e., MATLAB) file formats for convenience.
 
-This repository contains Python and MATLAB code to support dataset use. The codes were developed for Python Version 3.11 and MATLAB Version 2023a. A comprehensive overview of the dataset and methodology is provided in [our paper](www.google.com).
+This repository contains Python and MATLAB code to support dataset use. The codes were developed for Python Version 3.11 and MATLAB Version 2023a. A comprehensive overview of the dataset and methodology is provided in the study's [data descriptor](www.google.com).
 
 # Using the Repository
 
@@ -55,9 +55,9 @@ For each walking trial (W1, W2, W3, W3), the following data files are provided:
 
 1. `trial.{npz,mat}`: a 3D tensor containing the full 90-second pressure recording recording with shape: (approx. 9000 frames $\times$ 720 px $\times$ 240 px)
 
-1. `pipeline_1.{npz,mat}`: a 4D tensor containing extracted footsteps preprocessed using *pipeline #1* (documented in [our paper](www.google.com) and demonstrated in [normalize_footsteps.ipynb](python/normalize_footsteps.ipynb)) with shape: (n<sub>footsteps</sub> $\times$ 101 frames $\times$ 75 px $\times$ 40 px)
+1. `pipeline_1.{npz,mat}`: a 4D tensor containing extracted footsteps preprocessed using *pipeline #1* (documented in [the data descriptor](www.google.com) and demonstrated in [normalize_footsteps.ipynb](python/normalize_footsteps.ipynb)) with shape: (n<sub>footsteps</sub> $\times$ 101 frames $\times$ 75 px $\times$ 40 px)
 
-1. `pipeline_2.{npz,mat}`: a 4D tensor containing extracted footsteps preprocessed using *pipeline #2* (documented in [our paper](www.google.com) and demonstrated in [normalize_footsteps.ipynb](python/normalize_footsteps.ipynb)) with shape: (n<sub>footsteps</sub> $\times$ 101 frames $\times$ 75 px $\times$ 40 px)
+1. `pipeline_2.{npz,mat}`: a 4D tensor containing extracted footsteps preprocessed using *pipeline #2* (documented in [the data descriptor](www.google.com) and demonstrated in [normalize_footsteps.ipynb](python/normalize_footsteps.ipynb)) with shape: (n<sub>footsteps</sub> $\times$ 101 frames $\times$ 75 px $\times$ 40 px)
 
    
 ## Balance Trials
