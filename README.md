@@ -65,7 +65,7 @@ For each walking trial (W1, W2, W3, W3), the following data files are provided:
 For each balance trial (S1, S2, S3), the following data files are provided:
 
 1. `trial.{npz,mat}`: a 3D tensor of the full 30-second trial recording, with shape: (approx. 3000 frames $\times$ 720 px $\times$ 240 px)
-1. `processed.{npz,mat}`: a 3D array spatially cropped to the region of interest, with shape: (3000 frames $\times$ 180 px $\times$ 180 px)
+1. `preprocessed.{npz,mat}`: a 3D array spatially cropped to the region of interest, with shape: (3000 frames $\times$ 180 px $\times$ 180 px)
 
 
 # Citing this Dataset
