@@ -18,3 +18,7 @@ def load_trial(participant_id, footwear, speed):
 def load_footsteps(participant_id, footwear, speed, pipeline = 1):
   f = dataset_folder / f'{participant_id:03}' / footwear / speed / f'pipeline_{pipeline}.npz'
   return np.load(f)['arr_0']
+
+def load_processed_standing(participant_id, footwear, trial):
+  f = dataset_folder / f'{participant_id:03}' / footwear / trial / 'preprocessed.npz'
+  return np.load(f)['arr_0']
