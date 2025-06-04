@@ -21,6 +21,10 @@ classdef utils
             footsteps = load(f).arr_0;
         end
 
+        function  trial = load_processed_standing(participant_id, footwear, trial)
+            f = fullfile(utils.dataset_folder, sprintf('%03.0f',participant_id),footwear,trial,'preprocessed.mat');
+            trial = load(f).arr_0;
+        end
     end
 end
 
