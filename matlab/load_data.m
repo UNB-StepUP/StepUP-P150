@@ -1,7 +1,7 @@
-%% Select Trial
+%% Load Data from one Walking Trial
 
 participant_id = 37; % possible values: integers from 1 - 150
-shoe_type = 'ST'; % possible values: 'BF', 'ST', 'P1', 'P2'
+shoe_type = 'P2'; % possible values: 'BF', 'ST', 'P1', 'P2'
 walk_condition = 'W3'; % possible values: 'W1', 'W2', 'W3', 'W4'
 
 %% Load Footstep Metadata
@@ -64,3 +64,41 @@ for iFootstep = 1:12
     axis('off')
 end
 sgtitle('Peak Pressures for Example Extracted Footsteps')
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Load Data from One Standing Trial
+
+participant_id = 37; % possible values: integers from 1 - 150
+shoe_type = 'P1'; % possible values: 'BF', 'ST', 'P1', 'P2'
+stand_condition = 'S2'; % possible values: 'S1', 'S2', 'S3'
+
+%% Load Raw Trial Recording
+
+trial = utils.load_trial(participant_id,shoe_type,stand_condition);
+
+disp(['Tensor size (frames, height, width): ',num2str(size(trial))])
+
+% display raw trial recording
+figure
+img_peak = squeeze(max(trial,[],1));
+img_peak = rot90(img_peak);
+imagesc(img_peak)
+colormap(cmap)
+axis('equal')
+axis('off')
+title('Peak Pressures from Entire 30-Second Recording')
+
+%% Load Processed Standing Trial
+
+trial = utils.load_processed_standing(participant_id,shoe_type,stand_condition);
+
+disp(['Tensor size (frames, height, width): ',num2str(size(trial))])
+
+% display processed trial recording
+figure
+img_peak = squeeze(max(trial,[],1));
+imagesc(img_peak)
+colormap(cmap)
+axis('equal')
+axis('off')
+title('Peak Pressures from Processed Trial')
