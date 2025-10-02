@@ -8,7 +8,7 @@
 # Overview
 StepUP-P150 is a dataset of dynamic underfoot pressures during walking, developed to support pressure-based gait analysis and recognition. It contains high-resolution pressure recordings from 150 participants walking across a sensor-embedded platform at four different speeds (preferred speed, slow, fast, and slow-to-stop) with four different footwear conditions (barefoot, standard sneakers, and two pairs of personal shoes). 
 
-The StepUP-P150 dataset can be downloaded from the study's [Figshare Repository](https://doi.org/10.6084/m9.figshare.28143686). The dataset is provided in both `.npz` (i.e., NumPy) and `.mat` (i.e., MATLAB) file formats for convenience.
+The StepUP-P150 dataset can be downloaded from the study's [data repository](https://doi.org/10.20383/103.01285). The dataset is provided in both `.npz` (i.e., NumPy) and `.mat` (i.e., MATLAB) file formats for convenience.
 
 This repository contains Python and MATLAB code to support dataset use. The codes were developed for Python Version 3.11 and MATLAB Version 2023a. A comprehensive overview of the dataset and methodology is provided in the study's [data descriptor](https://doi.org/10.1038/s41597-025-05792-1).
 
